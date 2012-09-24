@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="plunker" >
+<html ng-app="api" >
 <head>
   <meta charset="utf-8">
   <title>AngularJS Plunker</title>
@@ -17,7 +17,7 @@
   <script src="app.js"></script>
 </head>
 <body ng-controller="MainCtrl">
-  <div class="container">
+  <div class="container-fluid">
     <ng-include src="'testing.html'"></ng-include>
     <form ng-submit="save(data)">
       <table class="table table-striped">
@@ -31,17 +31,15 @@
             <th>
               <input ng-model="filters.title" type="text" placeholder="Search by Title">
             </th>
-            <th>
-
-            </th>
+            <th></th>
             <th>
               <input ng-model="filters.tags" type="text" ng-list placeholder="Search by Tag">
             </th>
           </tr>
         </thead>
-        <tbody ng-repeat="(title, endpoint) in endpoints | filter:filters">
+        <tbody ng-repeat="endpoint in endpoints | filter:filters">
           <tr>
-            <td><a ng-click="open(title, endpoint)">{{title}}</a></td>
+            <td><a ng-click="open(endpoint)">{{endpoint.title}}</a></td>
             <td>
               <span ng-show="endpoint.get" class="label label-info">GET</span>
               <span ng-show="endpoint.post" class="label label-warning">POST</span>
@@ -55,6 +53,7 @@
         </tbody>
       </table>
     </form>
+    <ng-include src="'logs.html'"></ng-include>
   </div>
 </body>
 </html>

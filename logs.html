@@ -1,0 +1,10 @@
+<div>
+	<h3>Logs</h3>
+	<ul>
+		<li ng-repeat="log in logs">
+			<span class="label" ng-class="codeClass(log.code)">POST: {{log.code}}</span>
+			<a ng-click="open(log.data)">{{log.data.title}}</a>
+			{{log.url}}
+		</li>
+	</ul>
+</div>

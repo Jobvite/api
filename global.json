@@ -1,5 +1,6 @@
-{
-  "Employee List" : {
+[
+  {
+    "title" : "Employee List",
     "description" : "Returns a list of employees with options for query string and pagination. Mostly used in conjunction with <strong>Select2</strong>",
     "host" : "http://{tomcat}",
     "path" : "/jhire/action/requisitionDetails?action=getEmployees&q=&pageSize=50&page=0",
@@ -18,8 +19,54 @@
     "response" : {
 
     },
+    "post" : false
+  },
+  {
+    "title" : "Candidate List",
+    "description" : "Returns a list of employees with options for query string and pagination. Mostly used in conjunction with <strong>Select2</strong>",
+    "host" : "http://{tomcat}",
+    "path" : "/jhire/action/requisitionDetails?action=getCandidates&q=&pageSize=50&page=0",
+    "get" : true,
+    "tags" : ["select2", "paging"],
+    "params" : {
+      "required" : {
+
+      },
+      "optional" : {
+        "q" : "Query String",
+        "pageSize" : "# of records (Default 50)",
+        "page" : "0 indexed"
+      }
+    },
+    "response" : {
+
+    },
+    "post" : {
+
+    }
+  },
+  {
+    "title" : "Candidate List",
+    "description" : "Returns a list of employees with options for query string and pagination. Mostly used in conjunction with <strong>Select2</strong>",
+    "host" : "http://{tomcat}",
+    "path" : "/jhire/action/requisitionDetails?action=getCandidates&q=&pageSize=50&page=0",
+    "get" : false,
+    "tags" : ["select2", "paging"],
+    "params" : {
+      "required" : {
+
+      },
+      "optional" : {
+        "q" : "Query String",
+        "pageSize" : "# of records (Default 50)",
+        "page" : "0 indexed"
+      }
+    },
+    "response" : {
+
+    },
     "post" : {
 
     }
   }
-}
+]
