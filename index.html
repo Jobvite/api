@@ -1,0 +1,60 @@
+<!doctype html>
+<html ng-app="plunker" >
+<head>
+  <meta charset="utf-8">
+  <title>AngularJS Plunker</title>
+  <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+  <link href="http://angular-ui.github.com/lib/CodeMirror2/lib/codemirror.css" rel="stylesheet">
+  <link href="http://angular-ui.github.com/lib/CodeMirror2/theme/monokai.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="https://raw.github.com/twitter/bootstrap/master/docs/assets/js/bootstrap.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.js"></script>
+  <script src="ngResource.js"></script>
+  <script src="https://raw.github.com/angular-ui/angular-ui/master/build/angular-ui.js"></script>
+  <script src="http://angular-ui.github.com/lib/CodeMirror2/lib/codemirror.js"></script>
+  <script src="http://angular-ui.github.com/lib/CodeMirror2/mode/javascript/javascript.js"></script>
+  <script src="app.js"></script>
+</head>
+<body ng-controller="MainCtrl">
+  <div class="container">
+    <ng-include src="'testing.html'"></ng-include>
+    <form ng-submit="save(data)">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Methods</th>
+            <th>Tags</th>
+          </tr>
+          <tr>
+            <th>
+              <input ng-model="filters.title" type="text" placeholder="Search by Title">
+            </th>
+            <th>
+
+            </th>
+            <th>
+              <input ng-model="filters.tags" type="text" ng-list placeholder="Search by Tag">
+            </th>
+          </tr>
+        </thead>
+        <tbody ng-repeat="(title, endpoint) in endpoints | filter:filters">
+          <tr>
+            <td><a ng-click="open(title, endpoint)">{{title}}</a></td>
+            <td>
+              <span ng-show="endpoint.get" class="label label-info">GET</span>
+              <span ng-show="endpoint.post" class="label label-warning">POST</span>
+            </td>
+            <td>{{endpoint.tags.join(', ')}}</td>
+          </tr>
+          <tr>
+            <td colspan="3" ng-bind-html-unsafe="endpoint.description">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+</body>
+</html>

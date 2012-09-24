@@ -1,0 +1,35 @@
+<form ng-controller="TestingCtrl" ng-submit="test(data)" ui-toggle="data">
+  <legend>
+    Testing
+    <button ng-click="$parent.$parent.data=false" class="close">&times;</button>
+  </legend>
+  <legend>Tokens</legend>
+  <div ng-repeat="token in tokens">
+    <input ng-model="token.key" type="text" placeholder="Token" ng-change="addToken($last, token, $index)">
+    <input ng-model="token.value" type="text" placeholder="Value" ng-change="addToken($last, token, $index)">
+  </div>
+  <legend>Endpoint</legend>
+  <div class="controls">
+    <input class="span10" type="text" ng-model="data.title" placeholder="Endpoint Title">
+  </div>
+  <div class="controls">
+    <textarea class="span10" ng-model="data.description" placeholder="Description"></textarea>
+  </div>
+  <div class="controls controls-row">
+    <input type="text" class="span2" ng-model="data.host" placeholder="Host">
+    <span class="btn-group" data-toggle="buttons-radio">
+      <input type="text" class="span8" ng-model="data.path" placeholder="Path">
+      <button ng-show="data.get" type="button" class="btn btn-info">GET</button>
+      <button type="button" class="btn btn-warning">POST</button>
+    </span>
+  </div>
+  <input type="text" ng-model="data.tags" ng-list placeholder="Tags, comma, separated">
+  <div ui-toggle="data.code">
+    <label>
+      <strong>Code:</strong>
+      <span class="label" ng-class="codeClass">{{data.code}}</span>
+    </label>
+    <pre>{{data.response|json}}</pre>
+  </div>
+  <button type="submit" class="btn">Submit</button>
+</form>

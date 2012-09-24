@@ -1,0 +1,7 @@
+/* Put your css in here */
+.ui-hide{
+  -webkit-transition-duration:0.3s;-moz-transition-duration:0.3s;-o-transition-duration:0.3s;transition-duration:0.3s;-webkit-transition-timing-function:cubic-bezier(0, 1, 0.5, 1);-moz-transition-timing-function:cubic-bezier(0, 1, 0.5, 1);-o-transition-timing-function:cubic-bezier(0, 1, 0.5, 1);transition-timing-function:cubic-bezier(0, 1, 0.5, 1);max-height:0;overflow:hidden;border-top-width:0 !important;border-bottom-width:0 !important;padding-top:0 !important;padding-bottom:0 !important;margin-top:0 !important;margin-bottom:0 !important
+}
+.ui-show{
+  -webkit-transition-duration:0.3s;-moz-transition-duration:0.3s;-o-transition-duration:0.3s;transition-duration:0.3s;-webkit-transition-timing-function:ease-in;-moz-transition-timing-function:ease-in;-o-transition-timing-function:ease-in;transition-timing-function:ease-in;max-height:1000px;overflow:hidden
+}
