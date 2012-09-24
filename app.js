@@ -25,7 +25,7 @@ app.controller('MainCtrl', function($scope, $resource) {
   };
   $scope.test = function(data) {
     function done(response, code) {
-      data.response = response.replace();
+      data.response = response;
       data.code = code;
     }
     var options = {
